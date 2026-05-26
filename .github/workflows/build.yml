@@ -49,6 +49,12 @@ jobs:
         with:
           python-version: "3.12"
 
+      # 👇 新增这一步
+      - name: Upgrade pip, setuptools and wheel
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip --version  # 打印版本便于排查
+
       - name: Make plugin_repackaging.sh executable
         run: chmod +x ./plugin_repackaging.sh
 
