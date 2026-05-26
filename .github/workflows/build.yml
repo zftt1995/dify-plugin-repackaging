@@ -60,14 +60,7 @@ jobs:
 
       - name: Run plugin repackaging script
         run: |
-          PIP_MIRROR_URL=https://pypi.org/simple \
-          ./plugin_repackaging.sh \
-          -p ${{ env.PIP_PLATFORM }} \
-          -s ${{ env.PACKAGE_SUFFIX }} \
-          market \
-          "${{ github.event.inputs.plugin_author }}" \
-          "${{ github.event.inputs.plugin_name }}" \
-          "${{ github.event.inputs.plugin_version }}"
+          PIP_MIRROR_URL=https://pypi.org/simple ./plugin_repackaging.sh  -p ${{ env.PIP_PLATFORM }}  -s ${{ env.PACKAGE_SUFFIX }}  market  "${{ github.event.inputs.plugin_author }}"  "${{ github.event.inputs.plugin_name }}"  "${{ github.event.inputs.plugin_version }}"
 
       - name: Find repackaged artifact
         run: |
